@@ -1,0 +1,186 @@
+#!/bin/bash
+
+white='\e[1;77m'
+cyan='\e[0;36m'
+green='\e[0;34m'
+okegreen='\033[92m'
+lightgreen='\e[1;32m'
+white='\e[1;37m'
+red='\e[1;31m'
+yellow='\e[0;33m'
+BlueF='\e[1;34m' #Biru
+RESET="\033[00m" #normal
+orange='\e[38;5;166m'
+
+clear
+trap 'stop;exit 1' 2
+
+menu () {
+
+printf " \e[1;92m[\e[0m\e[1;77m01\e[0m\e[1;92m]\e[0m\e[1;93m Fish\e[0m"
+echo
+printf " \e[1;92m[\e[0m\e[1;77m02\e[0m\e[1;92m]\e[0m\e[1;93m Metasploit\e[0m"
+echo
+printf " \e[1;92m[\e[0m\e[1;77m03\e[0m\e[1;92m]\e[0m\e[1;93m TheFatRat\e[0m"
+echo
+printf " \e[1;92m[\e[0m\e[1;77m04\e[0m\e[1;92m]\e[0m\e[1;93m SocialFish\e[0m"
+echo
+printf " \e[1;92m[\e[0m\e[1;77m05\e[0m\e[1;92m]\e[0m\e[1;93m ShellPhish\e[0m"
+echo
+printf " \e[1;92m[\e[0m\e[1;77m06\e[0m\e[1;92m]\e[0m\e[1;93m See a cool date\e[0m"
+echo
+printf " \e[1;92m[\e[0m\e[1;77m07\e[0m\e[1;92m]\e[0m\e[1;93m Instainsane\e[0m\n"
+printf " \e[1;92m[\e[0m\e[1;77m08\e[0m\e[1;92m]\e[0m\e[1;93m KickThemOut (Need repair)\e[0m"
+echo
+printf " \e[1;92m[\e[0m\e[1;77m09\e[0m\e[1;92m]\e[0m\e[1;93m Ifconfig\e[0m\n"
+printf " \e[1;92m[\e[0m\e[1;77m10\e[0m\e[1;92m]\e[0m\e[1;93m sAINT\e[0m\n"
+printf " \e[1;92m[\e[0m\e[1;77m11\e[0m\e[1;92m]\e[0m\e[1;93m nSnake\e[0m\n"
+printf " \e[1;92m[\e[0m\e[1;77m12\e[0m\e[1;92m]\e[0m\e[1;93m Zenmap\e[0m\n"
+printf " \e[1;92m[\e[0m\e[1;77m13\e[0m\e[1;92m]\e[0m\e[1;93m Edit raviolihack\e[0m\n"
+printf " \e[1;92m[\e[0m\e[1;77m14\e[0m\e[1;92m]\e[0m\e[1;93m nInvaders (Need repair)\e[0m\n"
+printf " \e[1;92m[\e[0m\e[1;77m99\e[0m\e[1;92m]\e[0m\e[1;93m Exit\e[0m\n"
+echo
+echo -e $okegreen" ┌─["$red"ravi0li$okegreen]──[$green~$okegreen]─["$red"menu$okegreen]:"
+			echo -ne $okegreen" └─────► " ;tput sgr0
+read option
+
+if [[ $option == 1 || $option == 01 ]]; then
+sleep 1
+clear
+fish
+
+elif [[ $option == 2 || $option == 02 ]]; then
+sleep 1
+clear
+msfconsole
+
+elif [[ $option == 3 || $option == 03 ]]; then
+sleep 1
+clear
+fatrat
+
+elif [[ $option == 4 || $option == 04 ]]; then
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd root/SocialFish
+python3 SocialFish.py
+
+elif [[ $option == 5 || $option == 05 ]]; then
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd /root/shellphish
+./shellphish.sh
+
+elif [[ $option == 6 || $option == 06 ]]; then
+echo
+now
+echo
+
+elif [[ $option == 7 || $option == 07 ]]; then
+clear
+cd ..
+cd ..
+cd instainsane/
+./instainsane.sh
+
+elif [[ $option == 8 || $option == 08 ]]; then
+clear
+cd kickthemout/
+python3 kickthemout.py
+
+elif [[ $option == 9 || $option == 09 ]]; then
+clear
+echo
+ifconfig
+
+elif [[ $option == 10 ]]; then
+cd ..
+cd ..
+cd ..
+cd ..
+cd /root/sAINT
+java -jar sAINT.jar
+
+elif [[ $option == 11 ]]; then
+nsnake
+
+elif [[ $option == 12 ]]; then
+sleep 1
+echo
+printf "   \e[1;77mDONE!!\e[0m"
+zenmap
+sleep 1
+clear
+
+elif [[ $option == 13 ]]; then
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd ..
+cd /root
+sleep 1
+clear
+printf "   \e[1;77mRUNNING!!\e[0m"
+gedit raviolihack
+sleep 1
+echo
+printf "   \e[1;77mDONE!!\e[0m"
+sleep 1
+clear
+./raviolihack
+
+elif [[ $option == 14 ]]; then
+ninvaders
+
+elif [[ $option == 99 ]]; then
+/usr/games/cowsay "Bye!"
+echo
+sleep 1
+clear
+fish
+
+else
+echo
+printf "\e[1;93m [!] Error: opción incorrecta x_x\e[0m\n"
+sleep 2
+clear
+banner
+menu
+fi
+}
+
+stop (){
+echo
+printf "Bye! ⏎ ⏎ ⏎ ⏎ ⏎ ⏎ ⏎ "
+echo
+sleep 2
+clear
+exit
+}
+
+banner () {
+cd ..
+cd ..
+cd ..
+cd ..
+cd /root
+toilet -f graffiti.flf "raviolihack" --filter border
+printf "\e[1;93m                 .:.:.\e[0m\e[1;77mby ravioliAdventures\e[0m\e[1;93m.:.:.\e[0m\n"
+echo
+}
+banner
+menu
