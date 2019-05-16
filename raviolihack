@@ -38,6 +38,7 @@ printf " \e[1;92m[\e[0m\e[1;77m11\e[0m\e[1;92m]\e[0m\e[1;93m nSnake\e[0m\n"
 printf " \e[1;92m[\e[0m\e[1;77m12\e[0m\e[1;92m]\e[0m\e[1;93m Zenmap\e[0m\n"
 printf " \e[1;92m[\e[0m\e[1;77m13\e[0m\e[1;92m]\e[0m\e[1;93m Edit raviolihack\e[0m\n"
 printf " \e[1;92m[\e[0m\e[1;77m14\e[0m\e[1;92m]\e[0m\e[1;93m nInvaders (Need repair)\e[0m\n"
+printf " \e[1;92m[\e[0m\e[1;77m15\e[0m\e[1;92m]\e[0m\e[1;93m BitchX\e[0m\n"
 printf " \e[1;92m[\e[0m\e[1;77m99\e[0m\e[1;92m]\e[0m\e[1;93m Exit\e[0m\n"
 echo
 echo -e $okegreen" ┌─["$red"ravi0li$okegreen]──[$green~$okegreen]─["$red"menu$okegreen]:"
@@ -145,6 +146,9 @@ clear
 
 elif [[ $option == 14 ]]; then
 ninvaders
+
+elif [[ $option == 15 ]]; then
+BitchX
 
 elif [[ $option == 99 ]]; then
 /usr/games/cowsay "Bye!"
