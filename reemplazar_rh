@@ -1,0 +1,60 @@
+#!/bin/bash
+
+clear
+trap 'stop;exit 1' 2
+
+banner (){
+echo
+printf "     \e[1;77m Reemplazar ravolihack\e[0m\n"
+printf "         \e[1;77m -by ravi0li-\e[0m\n"
+echo
+echo
+}
+
+description (){
+printf "   \e[1;31m [SE NECESITA ROOT (sudo su)]\033[00m"
+echo
+echo
+printf " \033[92m TIENE QUE ESTAR LA ULTIMA VERSION DE raviolihack (con ese nombre en minusculas)\033[00m"
+echo
+printf " \033[92m EN <HOME> (ravi0li) Y EL QUE SE QUIERA REEMPLAZAR EN <BIN>\033[00m"
+echo
+printf " \033[92m EL ANTIGUO SE GUARDARÁ EN /ROOT/ESCRITORIO/.oldscripts\033[00m"
+echo
+echo
+printf "   \e[1;31m [SI NO ES ASI, PRESIONE ctrl + C antes de 15 segundos.]\033[00m"
+sleep 15
+echo
+}
+
+stop (){
+echo
+echo
+printf " Cancelando... ⏎ ⏎ ⏎ ⏎ ⏎ ⏎ ⏎ "
+echo
+echo
+exit
+}
+
+process (){
+cd ..
+cd ..
+cd ..
+cp /bin/raviolihack /root/Escritorio/.oldscripts
+rm /bin/raviolihack
+cp /root/raviolihack /bin/
+echo
+printf "     \e[1;77m FINISH!!\e[0m\n"
+echo
+echo
+}
+
+clearcons (){
+sleep 3
+clear
+}
+
+banner
+description
+process
+clearcons

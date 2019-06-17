@@ -15,6 +15,47 @@ orange='\e[38;5;166m'
 clear
 trap 'stop;exit 1' 2
 
+info () {
+	printf " \e[1;92m[\e[0m\e[1;77m Y \e[0m\e[1;92m]\e[0m\e[1;93m Start installation. [ RUK may be required for some functions (https://github.com/r4v10l1/RUK) ]\e[0m"
+echo
+printf " \e[1;92m[\e[0m\e[1;77m N \e[0m\e[1;92m]\e[0m\e[1;93m Exit.\e[0m"
+echo
+
+echo
+echo -e $okegreen" ┌─["$red"ravi0li$okegreen]──[$green~$okegreen]─["$red"menu$okegreen]:"
+			echo -ne $okegreen" └─────► " ;tput sgr0
+read option	
+}
+
+install () {
+	if [ $(id -u) != "0" ]; then
+echo
+echo -e $red [x]::[not root]: You need to be [root] to run this script.;
+      echo ""
+   	  sleep 1
+exit 0
+fi
+
+if [[ $option == y || $option == Y ]]; then
+apt-get install toilet
+apt-get install cowsay
+echo
+echo
+echo [=======================================================================]
+echo " RAVI0LIHACK HAS BEEN INSTALLED SUCCESSFULLY IN YOUR COMPUTER!! ENJOY"
+echo [=======================================================================]
+echo
+sleep 3
+clear
+}
+
+elif [[ $option == n || $option == N ]]; then
+echo "OK, Bye!"
+echo
+sleep 1
+clear
+exit
+
 menu () {
 
 printf " \e[1;92m[\e[0m\e[1;77m01\e[0m\e[1;92m]\e[0m\e[1;93m Fish\e[0m"
@@ -154,6 +195,8 @@ elif [[ $option == 99 ]]; then
 /usr/games/cowsay "Bye!"
 echo
 sleep 1
+cd .., cd .., cd .., cd .., cd .., cd .., cd ..
+cd /root
 clear
 fish
 
@@ -186,5 +229,8 @@ toilet -f graffiti.flf "raviolihack" --filter border
 printf "\e[1;93m                 .:.:.\e[0m\e[1;77mby ravioliAdventures\e[0m\e[1;93m.:.:.\e[0m\n"
 echo
 }
+
+info
+install
 banner
 menu
