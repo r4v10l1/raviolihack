@@ -5,4 +5,4 @@ Raviolihack is a toolkit made by ravi0li that includes some shortcuts to hacking
 ### Install
 1. ```git clone https://github.com/r4v10l1/raviolihack```
 2. ```cd raviolihack```
-3. ```chmod +x raviolihack && ./raviolihack```
+3. ```chmod +x setup && ./setup```
