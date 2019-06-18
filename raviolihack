@@ -15,6 +15,7 @@ orange='\e[38;5;166m'
 clear
 trap 'stop;exit 1' 2
 
+#installation menu
 info () {
 	printf " \e[1;92m[\e[0m\e[1;77m Y \e[0m\e[1;92m]\e[0m\e[1;93m Start installation. [ RUK may be required for some functions (https://github.com/r4v10l1/RUK) ]\e[0m"
 echo
@@ -27,18 +28,29 @@ echo -e $okegreen" ┌─["$red"ravi0li$okegreen]──[$green~$okegreen]─["$r
 read option	
 }
 
-install () {
-	if [ $(id -u) != "0" ]; then
+
+#installation
+install (){
+#check root
+if [[ $option == y || $option == Y ]]; then
+if [ $(id -u) != "0" ]; then
 echo
 echo -e $red [x]::[not root]: You need to be [root] to run this script.;
       echo ""
    	  sleep 1
 exit 0
 fi
+#install
 
-if [[ $option == y || $option == Y ]]; then
+#for the banner
 apt-get install toilet
+mkdir /root/fonts
+cp fonts/graffiti.flf /root/fonts
+
+#for the 99 option
 apt-get install cowsay
+
+#finish text
 echo
 echo
 echo [=======================================================================]
@@ -56,6 +68,7 @@ sleep 1
 clear
 exit
 
+#menu display
 menu () {
 
 printf " \e[1;92m[\e[0m\e[1;77m01\e[0m\e[1;92m]\e[0m\e[1;93m Fish\e[0m"
@@ -86,6 +99,7 @@ echo -e $okegreen" ┌─["$red"ravi0li$okegreen]──[$green~$okegreen]─["$r
 			echo -ne $okegreen" └─────► " ;tput sgr0
 read option
 
+#options
 if [[ $option == 1 || $option == 01 ]]; then
 sleep 1
 clear
@@ -200,6 +214,7 @@ cd /root
 clear
 fish
 
+#error
 else
 echo
 printf "\e[1;93m [!] Error: opción incorrecta x_x\e[0m\n"
@@ -210,6 +225,7 @@ menu
 fi
 }
 
+#ctrl + c
 stop (){
 echo
 printf "Bye! ⏎ ⏎ ⏎ ⏎ ⏎ ⏎ ⏎ "
@@ -219,13 +235,14 @@ clear
 exit
 }
 
+#banner
 banner () {
 cd ..
 cd ..
 cd ..
 cd ..
 cd /root
-toilet -f graffiti.flf "raviolihack" --filter border
+toilet -f /root/fonts/graffiti.flf "raviolihack" --filter border
 printf "\e[1;93m                 .:.:.\e[0m\e[1;77mby ravioliAdventures\e[0m\e[1;93m.:.:.\e[0m\n"
 echo
 }
